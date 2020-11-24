@@ -9,11 +9,24 @@
 	<link rel="stylesheet" href="style.css" />
 
 	<style>
-		body {
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {}
+
+		header {
+			height: 700px;
+			background-color: red;
+		}
+
+		.counter-wrap {
 			display: flex;
-			align-items: flex-end;
 			justify-content: space-evenly;
-			height: 1500px;
+			text-align: center;
+			height: 200px;
 		}
 
 		.counter {
@@ -24,27 +37,35 @@
 		h3 {
 			font-size: 2rem;
 		}
+
+		footer {
+			height: 700px;
+			background-color: olive;
+		}
 	</style>
 </head>
 
 <body>
-	<div>
-		<div class="counter" data-target="1000">0</div>
-		<h3>Subscribe</h3>
+	<header class="header">Header</header>
+	<div class="counter-wrap">
+		<div>
+			<div class="counter" data-target="1000">0</div>
+			<h3>Subscribe</h3>
+		</div>
+		<div>
+			<div class="counter" data-target="500">0</div>
+			<h3>Subscribe</h3>
+		</div>
+		<div>
+			<div class="counter" data-target="1500">0</div>
+			<h3>Subscribe</h3>
+		</div>
+		<div>
+			<div class="counter" data-target="8000">0</div>
+			<h3>Subscribe</h3>
+		</div>
 	</div>
-	<div>
-		<div class="counter" data-target="500">0</div>
-		<h3>Subscribe</h3>
-	</div>
-	<div>
-		<div class="counter" data-target="1500">0</div>
-		<h3>Subscribe</h3>
-	</div>
-	<div>
-		<div class="counter" data-target="8000">0</div>
-		<h3>Subscribe</h3>
-	</div>
-
+	<footer class="footer">Footer</footer>
 	<script src="script.js"></script>
 </body>
 

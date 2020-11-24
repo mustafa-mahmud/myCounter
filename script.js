@@ -4,8 +4,6 @@ let i = 0;
 
 function loopCounter() {
   counters.forEach((counter) => {
-    counter.innerText = '';
-
     const updateCount = () => {
       const target = +counter.getAttribute('data-target');
       const count = +counter.innerText;
@@ -25,9 +23,19 @@ function loopCounter() {
 }
 
 window.addEventListener('scroll', (e) => {
+  const top = counters[0].offsetTop;
+
   const { scrollTop, clientHeight, offsetHeight } = document.documentElement;
 
-  if (scrollTop + clientHeight >= offsetHeight - 1) {
+  /* if (scrollTop + clientHeight >= offsetHeight - 1) {
     loopCounter();
+	} */
+
+  if (scrollTop + clientHeight > top + 50) {
+    loopCounter();
+  } else {
+    counters.forEach((counter) => {
+      counter.innerText = '0';
+    });
   }
 });
