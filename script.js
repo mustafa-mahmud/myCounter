@@ -1,17 +1,20 @@
-const counters = document.querySelectorAll('.counter');
+const counter = document.querySelector('.counter');
+const counts = document.querySelectorAll('.count');
 const speed = 500;
 let i = 0;
 
 function loopCounter() {
-  counters.forEach((counter) => {
+  counts.forEach((count) => {
     const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
+      const target = +count.getAttribute('data-target');
+      const countDOM = +count.innerText;
 
       const inc = target / speed;
-      if (count < target) {
-        counter.innerText =
-          (count + inc) % 1 !== 0 ? (count + inc).toFixed(2) : count + inc;
+      if (countDOM < target) {
+        count.innerText =
+          (countDOM + inc) % 1 !== 0
+            ? (countDOM + inc).toFixed(2)
+            : countDOM + inc;
         setTimeout(updateCount, 1);
       } else {
         count.innerText = target;
@@ -23,19 +26,15 @@ function loopCounter() {
 }
 
 window.addEventListener('scroll', (e) => {
-  const top = counters[0].offsetTop;
+  const top = counter.offsetTop;
 
-  const { scrollTop, clientHeight, offsetHeight } = document.documentElement;
+  const { scrollTop, clientHeight } = document.documentElement;
 
-  /* if (scrollTop + clientHeight >= offsetHeight - 1) {
-    loopCounter();
-	} */
-
-  if (scrollTop + clientHeight > top + 50) {
+  if (scrollTop + clientHeight > top + 100) {
     loopCounter();
   } else {
-    counters.forEach((counter) => {
-      counter.innerText = '0';
+    counts.forEach((count) => {
+      count.innerText = '0';
     });
   }
 });
